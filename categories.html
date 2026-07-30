@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories · Jorven Thicket Almanac</title>
+  <!-- Premium typography: organic sans + refined serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------- reset & base -------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f3ec;  /* warm stone */
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      color: #2b2a26;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* -------------------- brand identity -------------------- */
+    :root {
+      --lichen: #c0b7a8;
+      --moss: #5b6f4c;
+      --deep-forest: #293d2b;
+      --bark: #4d3e32;
+      --spore: #d9c9b0;
+      --cream: #f3efe8;
+      --charcoal: #22211e;
+      --border-soft: #d6cec0;
+      --shadow-card: 0 12px 28px -8px rgba(30, 30, 20, 0.10);
+    }
+    /* -------------------- navigation (identical to index) -------------------- */
+    .nav-weave {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.8rem 0 1.2rem;
+      border-bottom: 1px solid var(--border-soft);
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--deep-forest);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-symbol {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--moss);
+      border-radius: 60% 40% 50% 30% / 45% 30% 60% 40%;
+      transform: rotate(8deg);
+      border: 2px solid var(--cream);
+      box-shadow: inset 0 0 0 2px var(--deep-forest);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 400;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--bark);
+    }
+    .nav-links a {
+      padding: 0.4rem 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--moss);
+      color: var(--deep-forest);
+    }
+    .nav-links a.active {
+      border-bottom-color: var(--moss);
+      color: var(--deep-forest);
+    }
+    .nav-tools {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+    .nav-tools span {
+      background: var(--cream);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      border: 1px solid var(--border-soft);
+      font-weight: 300;
+    }
+    /* -------------------- categories hero -------------------- */
+    .categories-hero {
+      padding: 3rem 0 2rem;
+      margin: 2rem 0 2.5rem;
+      border-radius: 100px 0 100px 0;
+      background: var(--cream);
+      box-shadow: var(--shadow-card);
+    }
+    .categories-hero h1 {
+      font-family: 'Quattrocento', serif;
+      font-size: 3.4rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--deep-forest);
+      border-left: 8px solid var(--moss);
+      padding-left: 2rem;
+    }
+    .categories-hero h1 small {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--bark);
+      margin-top: 0.6rem;
+      font-family: 'Work Sans', sans-serif;
+    }
+    /* -------------------- categories grid (card style) -------------------- */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0 4rem;
+    }
+    .category-card {
+      background: white;
+      border-radius: 40px 8px 40px 8px;
+      padding: 1.8rem 1.8rem 2rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid #ded6c8;
+      transition: 0.2s ease;
+    }
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 36px -12px rgba(30,30,20,0.18);
+      border-color: var(--moss);
+    }
+    .category-card .icon {
+      font-size: 2.6rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .category-card h3 {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--deep-forest);
+      margin-bottom: 0.4rem;
+    }
+    .category-card p {
+      font-weight: 300;
+      color: #3d3b35;
+      margin: 0.6rem 0 1rem;
+      font-size: 0.95rem;
+    }
+    .category-card .count {
+      display: inline-block;
+      background: var(--cream);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+      color: var(--bark);
+      border: 1px solid var(--border-soft);
+    }
+    .category-card .read-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-weight: 500;
+      color: var(--moss);
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .category-card .read-link:hover {
+      border-bottom-color: var(--moss);
+      color: var(--deep-forest);
+    }
+    /* featured category highlight */
+    .category-card.featured {
+      background: var(--cream);
+      border-left: 8px solid var(--moss);
+      border-radius: 40px 8px 40px 8px;
+    }
+    /* -------------------- footer (identical) -------------------- */
+    .footer-weave {
+      background: var(--deep-forest);
+      color: #d4cfc3;
+      padding: 4rem 0 2rem;
+      margin-top: 5rem;
+      border-radius: 60px 0 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-grid h4 {
+      color: var(--spore);
+      font-family: 'Quattrocento', serif;
+      margin-bottom: 1.2rem;
+    }
+    .footer-grid a {
+      display: block;
+      padding: 0.3rem 0;
+      font-weight: 300;
+      border-bottom: 1px solid transparent;
+      width: fit-content;
+    }
+    .footer-grid a:hover {
+      border-bottom-color: var(--spore);
+      color: white;
+    }
+    .footer-copy {
+      border-top: 1px solid #4f5e3f;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+    /* -------------------- responsive -------------------- */
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .categories-hero h1 {
+        font-size: 2.4rem;
+        padding-left: 1.2rem;
+      }
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- navigation (same as index) -->
+  <nav class="nav-weave">
+    <div class="logo">
+      <span class="logo-symbol"></span>
+      Jorven Thicket Almanac
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="categories.html" class="active">Categories</a>
+      <a href="disclamier.html">Disclaimer</a>
+    </div>
+    <div class="nav-tools">
+      <span>🔍</span>
+      <span>🌿</span>
+    </div>
+  </nav>
+
+  <!-- categories hero -->
+  <section class="categories-hero">
+    <h1>Categories <small>wander through the thicket · by subject</small></h1>
+  </section>
+
+  <!-- categories grid -->
+  <div class="categories-grid">
+
+    <!-- card 1 : featured -->
+    <div class="category-card featured">
+      <div class="icon">🌱</div>
+      <h3>Soil &amp; Earth</h3>
+      <p>Compost, mycelium, mineral balance, and the living ground beneath our feet.</p>
+      <span class="count">18 articles</span>
+      <a href="#" class="read-link">dig deeper →</a>
+    </div>
+
+    <!-- card 2 -->
+    <div class="category-card">
+      <div class="icon">🌿</div>
+      <h3>Wild Flora</h3>
+      <p>Native plants, hedgerow herbs, forgotten blossoms, and botanical curiosities.</p>
+      <span class="count">24 articles</span>
+      <a href="#" class="read-link">explore →</a>
+    </div>
+
+    <!-- card 3 -->
+    <div class="category-card">
+      <div class="icon">🦔</div>
+      <h3>Fur &amp; Feather</h3>
+      <p>Garden creatures, field observations, animal tracks, and quiet encounters.</p>
+      <span class="count">12 articles</span>
+      <a href="#" class="read-link">track →</a>
+    </div>
+
+    <!-- card 4 -->
+    <div class="category-card">
+      <div class="icon">🍂</div>
+      <h3>Seasonal Rhythms</h3>
+      <p>Moon phases, planting calendars, solstices, and the turning year.</p>
+      <span class="count">16 articles</span>
+      <a href="#" class="read-link">follow →</a>
+    </div>
+
+    <!-- card 5 -->
+    <div class="category-card">
+      <div class="icon">🍄</div>
+      <h3>Fungi &amp; Decay</h3>
+      <p>Mushrooms, rot, forest floor alchemy, and the network of life.</p>
+      <span class="count">9 articles</span>
+      <a href="#" class="read-link">uncover →</a>
+    </div>
+
+    <!-- card 6 -->
+    <div class="category-card">
+      <div class="icon">🌳</div>
+      <h3>Woodland Lore</h3>
+      <p>Ancient trees, coppicing, forest stories, and silviculture.</p>
+      <span class="count">14 articles</span>
+      <a href="#" class="read-link">wander →</a>
+    </div>
+
+    <!-- card 7 -->
+    <div class="category-card">
+      <div class="icon">🌼</div>
+      <h3>Pollinator Paths</h3>
+      <p>Bees, butterflies, and the art of wild pollination. Meadows and corridors.</p>
+      <span class="count">11 articles</span>
+      <a href="#" class="read-link">buzz →</a>
+    </div>
+
+    <!-- card 8 -->
+    <div class="category-card">
+      <div class="icon">📜</div>
+      <h3>Almanac Notes</h3>
+      <p>Field notes, journal entries, seasonal sketches, and thicket musings.</p>
+      <span class="count">20 articles</span>
+      <a href="#" class="read-link">read →</a>
+    </div>
+
+    <!-- card 9 : extra -->
+    <div class="category-card">
+      <div class="icon">🌾</div>
+      <h3>Harvest &amp; Storage</h3>
+      <p>Preserving, drying, root cellars, and the pantry of the wild.</p>
+      <span class="count">7 articles</span>
+      <a href="#" class="read-link">store →</a>
+    </div>
+
+  </div>
+
+  <!-- footer (identical) -->
+  <footer class="footer-weave">
+    <div class="footer-grid">
+      <div>
+        <h4>Jorven Thicket</h4>
+        <p style="font-weight: 300; max-width: 280px;">A wild gardening almanac — rooted in curiosity, written by hand. Est. 2026</p>
+      </div>
+      <div>
+        <h4>explore</h4>
+        <a href="#">Blog</a>
+        <a href="#">Categories</a>
+        <a href="#">Archive</a>
+        <a href="#">Authors</a>
+      </div>
+      <div>
+        <h4>information</h4>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Editorial Policy</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div>
+        <h4>legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 Jorven Thicket Almanac · handcrafted with soil &amp; silence
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>

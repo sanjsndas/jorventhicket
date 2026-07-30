@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorven Thicket · Privacy Policy</title>
+  <!-- Premium typography: organic sans + refined serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------- reset & base -------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f3ec;  /* warm stone */
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      color: #2b2a26;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* -------------------- brand identity -------------------- */
+    :root {
+      --lichen: #c0b7a8;
+      --moss: #5b6f4c;
+      --deep-forest: #293d2b;
+      --bark: #4d3e32;
+      --spore: #d9c9b0;
+      --cream: #f3efe8;
+      --charcoal: #22211e;
+      --border-soft: #d6cec0;
+      --shadow-card: 0 12px 28px -8px rgba(30, 30, 20, 0.10);
+    }
+    /* -------------------- unique navigation -------------------- */
+    .nav-weave {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.8rem 0 1.2rem;
+      border-bottom: 1px solid var(--border-soft);
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--deep-forest);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-symbol {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--moss);
+      border-radius: 60% 40% 50% 30% / 45% 30% 60% 40%;
+      transform: rotate(8deg);
+      border: 2px solid var(--cream);
+      box-shadow: inset 0 0 0 2px var(--deep-forest);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 400;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--bark);
+      list-style: none;
+    }
+    .nav-links a {
+      padding: 0.4rem 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--moss);
+      color: var(--deep-forest);
+    }
+    .nav-tools {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+    .nav-tools span {
+      background: var(--cream);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      border: 1px solid var(--border-soft);
+      font-weight: 300;
+    }
+
+    /* -------------------- privacy hero -------------------- */
+    .privacy-hero {
+      padding: 3rem 0 1.5rem;
+      margin: 1.5rem 0 1rem;
+    }
+    .privacy-hero h1 {
+      font-family: 'Quattrocento', serif;
+      font-size: 3.6rem;
+      font-weight: 700;
+      color: var(--deep-forest);
+      line-height: 1.1;
+    }
+    .privacy-hero h1 small {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--bark);
+      margin-top: 0.5rem;
+      font-family: 'Work Sans', sans-serif;
+    }
+    .privacy-hero p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      max-width: 720px;
+      margin-top: 1.2rem;
+      border-left: 4px solid var(--moss);
+      padding-left: 1.8rem;
+    }
+
+    /* -------------------- privacy content -------------------- */
+    .privacy-content {
+      background: white;
+      padding: 3rem 3rem;
+      border-radius: 40px 8px 40px 8px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-soft);
+      margin: 2rem 0 4rem;
+    }
+    .privacy-content h2 {
+      font-family: 'Quattrocento', serif;
+      font-size: 2.2rem;
+      color: var(--deep-forest);
+      border-bottom: 2px dotted var(--moss);
+      padding-bottom: 0.6rem;
+      margin-top: 2.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .privacy-content h2:first-of-type {
+      margin-top: 0;
+    }
+    .privacy-content h3 {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.4rem;
+      color: var(--bark);
+      margin-top: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .privacy-content p {
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .privacy-content ul {
+      margin: 0.8rem 0 1.2rem 1.8rem;
+      font-weight: 300;
+    }
+    .privacy-content ul li {
+      margin-bottom: 0.4rem;
+    }
+    .privacy-content .highlight-box {
+      background: var(--cream);
+      padding: 1.5rem 2rem;
+      border-radius: 30px 8px 30px 8px;
+      border-left: 6px solid var(--moss);
+      margin: 1.8rem 0;
+    }
+    .privacy-content .highlight-box strong {
+      color: var(--deep-forest);
+    }
+
+    /* -------------------- footer handcrafted -------------------- */
+    .footer-weave {
+      background: var(--deep-forest);
+      color: #d4cfc3;
+      padding: 4rem 0 2rem;
+      margin-top: 3rem;
+      border-radius: 60px 0 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-grid h4 {
+      color: var(--spore);
+      font-family: 'Quattrocento', serif;
+      margin-bottom: 1.2rem;
+    }
+    .footer-grid a {
+      display: block;
+      padding: 0.3rem 0;
+      font-weight: 300;
+      border-bottom: 1px solid transparent;
+      width: fit-content;
+    }
+    .footer-grid a:hover {
+      border-bottom-color: var(--spore);
+      color: white;
+    }
+    .footer-copy {
+      border-top: 1px solid #4f5e3f;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* -------------------- responsive -------------------- */
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .privacy-hero h1 {
+        font-size: 2.8rem;
+      }
+      .privacy-content {
+        padding: 2rem 1.5rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .privacy-hero h1 {
+        font-size: 2.2rem;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .privacy-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- navigation (consistent with main) -->
+  <nav class="nav-weave">
+    <div class="logo">
+      <span class="logo-symbol"></span>
+      Jorven Thicket Almanac
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+      <li><a href="categories.html">CATEGORIES</a></li>
+      <li><a href="disclamier.html">DISCLAMIER</a></li>
+    </ul>
+    <div class="nav-tools">
+      <span>🔍</span>
+      <span>🌿</span>
+    </div>
+  </nav>
+
+  <!-- privacy hero -->
+  <section class="privacy-hero">
+    <h1>Privacy Policy <small>how we tend to your data with root &amp; branch</small></h1>
+    <p>Your trust is the soil in which we grow. This policy explains what we collect, why we collect it, and how we protect it — always with transparency and care.</p>
+  </section>
+
+  <!-- privacy content -->
+  <div class="privacy-content">
+
+    <h2>🌱 1. Information we gather</h2>
+    <p>We collect only the information that helps us cultivate a better experience for you. This includes:</p>
+    <ul>
+      <li><strong>Name and email address</strong> — when you subscribe to our newsletter or send us a message.</li>
+      <li><strong>Usage data</strong> — such as pages visited, time spent, and referring links, to understand what our readers enjoy most.</li>
+      <li><strong>Cookies</strong> — small text files that help us remember your preferences (see our <a href="cookies.html" style="text-decoration: underline; color: var(--moss);">Cookies Policy</a> for details).</li>
+    </ul>
+
+    <h2>📬 2. How we use your information</h2>
+    <p>Every piece of data is used with a specific, respectful purpose:</p>
+    <ul>
+      <li>To respond to your inquiries and correspondence.</li>
+      <li>To send you seasonal almanac updates, if you have opted in.</li>
+      <li>To improve our content and website performance.</li>
+      <li>To protect the security and integrity of our site.</li>
+    </ul>
+    <div class="highlight-box">
+      <strong>🌿 We never sell, rent, or trade your personal data.</strong> Your privacy is as important to us as the health of the forest.
+    </div>
+
+    <h2>🔒 3. Data storage &amp; security</h2>
+    <p>We store your data on secure servers with industry‑standard encryption. Access is limited to essential personnel only. We regularly review our practices to ensure your information remains safe.</p>
+
+    <h2>📧 4. Your rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Request a copy of the data we hold about you.</li>
+      <li>Ask us to correct or delete your personal information.</li>
+      <li>Withdraw consent for marketing communications at any time.</li>
+    </ul>
+    <p>To exercise any of these rights, simply <a href="contact.html" style="text-decoration: underline; color: var(--moss);">reach out to us</a> — we will respond within 30 days.</p>
+
+    <h2>🍪 5. Cookies &amp; tracking</h2>
+    <p>We use minimal cookies to enhance functionality and analyse traffic. You can manage your cookie preferences through your browser settings. For a full breakdown, please visit our <a href="cookies.html" style="text-decoration: underline; color: var(--moss);">Cookies Policy</a>.</p>
+
+    <h2>🔗 6. Third‑party links</h2>
+    <p>Our almanac may include links to external sites. We are not responsible for the privacy practices of those platforms. We encourage you to review their policies before sharing any personal information.</p>
+
+    <h2>📝 7. Updates to this policy</h2>
+    <p>We may update this policy occasionally to reflect changes in our practices or legal requirements. The latest version will always be posted here, with the effective date noted below.</p>
+
+    <p style="margin-top: 2rem; font-style: italic; border-top: 1px solid var(--border-soft); padding-top: 1.5rem;">Effective date: 1 April 2026 · Last reviewed: 20 July 2026</p>
+
+  </div>
+
+  <!-- footer (consistent with main) -->
+  <footer class="footer-weave">
+    <div class="footer-grid">
+      <div>
+        <h4>Jorven Thicket</h4>
+        <p style="font-weight: 300; max-width: 280px;">A wild gardening almanac — rooted in curiosity, written by hand. Est. 2026</p>
+      </div>
+      <div>
+        <h4>explore</h4>
+        <a href="#">Blog</a>
+        <a href="#">Categories</a>
+        <a href="#">Archive</a>
+        <a href="#">Authors</a>
+      </div>
+      <div>
+        <h4>information</h4>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Editorial Policy</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div>
+        <h4>legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 Jorven Thicket Almanac · handcrafted with soil &amp; silence
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>

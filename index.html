@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorven Thicket Almanac · wild gardening intelligence</title>
+  <!-- Premium typography: organic sans + refined serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------- reset & base -------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f3ec;  /* warm stone */
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      color: #2b2a26;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* -------------------- brand identity -------------------- */
+    :root {
+      --lichen: #c0b7a8;
+      --moss: #5b6f4c;
+      --deep-forest: #293d2b;
+      --bark: #4d3e32;
+      --spore: #d9c9b0;
+      --cream: #f3efe8;
+      --charcoal: #22211e;
+      --border-soft: #d6cec0;
+      --shadow-card: 0 12px 28px -8px rgba(30, 30, 20, 0.10);
+    }
+    /* -------------------- unique navigation -------------------- */
+    .nav-weave {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.8rem 0 1.2rem;
+      border-bottom: 1px solid var(--border-soft);
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--deep-forest);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-symbol {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--moss);
+      border-radius: 60% 40% 50% 30% / 45% 30% 60% 40%;
+      transform: rotate(8deg);
+      border: 2px solid var(--cream);
+      box-shadow: inset 0 0 0 2px var(--deep-forest);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 400;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--bark);
+    }
+    .nav-links a {
+      padding: 0.4rem 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--moss);
+      color: var(--deep-forest);
+    }
+    .nav-tools {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+    .nav-tools span {
+      background: var(--cream);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      border: 1px solid var(--border-soft);
+      font-weight: 300;
+    }
+
+    /* -------------------- homepage architecture -------------------- */
+    /* 1. wild preamble — editorial notebook */
+    .preamble {
+      padding: 4.2rem 0 3rem;
+      background: var(--cream);
+      margin: 2rem 0 3rem;
+      border-radius: 120px 0 120px 0;
+      box-shadow: var(--shadow-card);
+    }
+    .preamble-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .preamble h1 {
+      font-family: 'Quattrocento', serif;
+      font-size: 3.6rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--deep-forest);
+    }
+    .preamble h1 small {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--bark);
+      margin-top: 0.8rem;
+      font-family: 'Work Sans', sans-serif;
+    }
+    .preamble-text {
+      background: white;
+      padding: 2rem 2.4rem;
+      border-radius: 20px 80px 20px 80px;
+      border-left: 8px solid var(--moss);
+      box-shadow: var(--shadow-card);
+    }
+
+    /* 2. knowledge atlas — floating cards, different styles */
+    .atlas {
+      padding: 2rem 0 5rem;
+    }
+    .atlas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .atlas-card {
+      background: white;
+      border-radius: 30px 8px 30px 8px;
+      padding: 2rem 1.8rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.25s;
+      border: 1px solid var(--border-soft);
+    }
+    .atlas-card:nth-child(2) {
+      border-radius: 8px 30px 8px 30px;
+      background: var(--cream);
+      transform: translateY(-0.5rem);
+    }
+    .atlas-card:nth-child(3) {
+      border-radius: 50px 12px 50px 12px;
+      background: #eae3d7;
+    }
+    .atlas-card h3 {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.6rem;
+      border-bottom: 2px dotted var(--moss);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .atlas-card p {
+      font-size: 0.95rem;
+      color: #3d3a33;
+    }
+
+    /* 3. feature long-form article preview (storytelling) */
+    .feature-article {
+      background: white;
+      border-radius: 60px 20px 60px 20px;
+      padding: 3.5rem 3rem;
+      margin: 4rem 0;
+      box-shadow: 0 24px 40px -16px rgba(30,30,20,0.18);
+      border: 1px solid #ded6c8;
+    }
+    .feature-article .meta {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--bark);
+      border-bottom: 1px solid var(--border-soft);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .feature-article h2 {
+      font-family: 'Quattrocento', serif;
+      font-size: 2.8rem;
+      line-height: 1.15;
+      color: var(--deep-forest);
+    }
+    .feature-article .excerpt {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin: 1.5rem 0 2rem;
+      border-left: 4px solid var(--moss);
+      padding-left: 1.8rem;
+    }
+    .btn-forest {
+      background: var(--deep-forest);
+      color: white;
+      padding: 0.8rem 2.4rem;
+      border-radius: 40px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      display: inline-block;
+      border: 1px solid var(--moss);
+      transition: 0.2s;
+    }
+    .btn-forest:hover {
+      background: var(--moss);
+      transform: scale(0.97);
+    }
+
+    /* 4. wild wisdom — mini guides / tips (different backgrounds) */
+    .wisdom {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+      padding: 2.5rem 0;
+      margin: 2rem 0;
+    }
+    .wisdom-main {
+      background: #eae1d3;
+      border-radius: 80px 20px 80px 20px;
+      padding: 2.5rem;
+    }
+    .wisdom-main h3 {
+      font-family: 'Quattrocento', serif;
+      font-size: 2rem;
+    }
+    .wisdom-side {
+      background: var(--cream);
+      border-radius: 20px 80px 20px 80px;
+      padding: 2rem;
+      border: 1px solid var(--border-soft);
+    }
+    .wisdom-side ul {
+      list-style: none;
+      font-size: 0.95rem;
+    }
+    .wisdom-side li {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed var(--border-soft);
+    }
+
+    /* 5. latest intelligence (timeline-ish) */
+    .intel-timeline {
+      padding: 2rem 0 4rem;
+    }
+    .intel-item {
+      display: flex;
+      gap: 2rem;
+      align-items: baseline;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid #ddd2c2;
+    }
+    .intel-item .date {
+      font-weight: 300;
+      color: var(--bark);
+      min-width: 90px;
+      font-size: 0.9rem;
+    }
+    .intel-item .title {
+      font-weight: 500;
+      font-size: 1.2rem;
+      font-family: 'Quattrocento', serif;
+    }
+
+    /* -------------------- footer handcrafted -------------------- */
+    .footer-weave {
+      background: var(--deep-forest);
+      color: #d4cfc3;
+      padding: 4rem 0 2rem;
+      margin-top: 5rem;
+      border-radius: 60px 0 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-grid h4 {
+      color: var(--spore);
+      font-family: 'Quattrocento', serif;
+      margin-bottom: 1.2rem;
+    }
+    .footer-grid a {
+      display: block;
+      padding: 0.3rem 0;
+      font-weight: 300;
+      border-bottom: 1px solid transparent;
+      width: fit-content;
+    }
+    .footer-grid a:hover {
+      border-bottom-color: var(--spore);
+      color: white;
+    }
+    .footer-copy {
+      border-top: 1px solid #4f5e3f;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* -------------------- responsive -------------------- */
+    @media (max-width: 900px) {
+      .preamble-grid, .wisdom, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .atlas-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+    @media (max-width: 600px) {
+      .atlas-grid {
+        grid-template-columns: 1fr;
+      }
+      .preamble h1 {
+        font-size: 2.6rem;
+      }
+    }
+
+    /* sample article long-form (inside page) hidden by default but visible in this demo) */
+    .long-form-sample {
+      background: white;
+      padding: 3rem 3.5rem;
+      border-radius: 40px 0 40px 0;
+      margin: 4rem 0;
+      box-shadow: var(--shadow-card);
+    }
+    .long-form-sample h2 {
+      font-family: 'Quattrocento', serif;
+      font-size: 2.8rem;
+    }
+    .long-form-sample h3 {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      color: var(--deep-forest);
+    }
+    .long-form-sample table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: var(--cream);
+    }
+    .long-form-sample td, .long-form-sample th {
+      border: 1px solid var(--border-soft);
+      padding: 0.8rem 1.2rem;
+      text-align: left;
+    }
+    .long-form-sample ul, .long-form-sample ol {
+      margin: 1.2rem 0 1.2rem 2rem;
+    }
+    .img-hero {
+      border-radius: 80px 0 80px 0;
+      margin: 2rem 0;
+      background: #b7ab97;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      background-image: radial-gradient(circle at 30% 40%, #8f9e7a, #3b4d33);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- navigation -->
+  <nav class="nav-weave">
+    <div class="logo">
+      <span class="logo-symbol"></span>
+      Jorven Thicket Almanac
+    </div>
+    <div class="nav-links">
+       <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms Of Privacy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li>
+					 <li><a href="categories.html">CATEGORIES</a></li>
+					<li><a href="disclamier.html">DISCLAMIER</a></li>
+    </div>
+    <div class="nav-tools">
+      <span>🔍</span>
+      <span>🌿</span>
+    </div>
+  </nav>
+
+  <!-- 1. preamble / editorial notebook -->
+  <section class="preamble">
+    <div class="preamble-grid">
+      <div>
+        <h1>Jorven Thicket <small>almanac of wild gardening &amp; woodland intelligence</small></h1>
+        <p style="margin-top: 1.5rem; font-size: 1.2rem; font-weight: 300; border-left: 4px solid var(--moss); padding-left: 1.5rem;">Where soil whispers and branches write — a handcrafted chronicle for the curious cultivator.</p>
+      </div>
+      <div class="preamble-text">
+        <p style="font-style: italic; font-weight: 300;">“The garden is a living manuscript. Each season turns a page.”</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem;">— from the editor’s log, 2026 ·  issue no. 7</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. knowledge atlas (floating cards) -->
+  <section class="atlas">
+    <div class="atlas-grid">
+      <div class="atlas-card">
+        <h3>🌱 rhizome</h3>
+        <p>Underground networks, root symbiosis, and the silent language of mycelium. Unseen threads that hold the thicket together.</p>
+      </div>
+      <div class="atlas-card">
+        <h3>🍃 canopy</h3>
+        <p>Vertical strata, light interception, and the architecture of leaves. How trees sculpt their own microclimate.</p>
+      </div>
+      <div class="atlas-card">
+        <h3>🪶 understory</h3>
+        <p>Shade lovers, ephemeral blooms, and the hidden rhythm of the forest floor. The quiet drama beneath the branches.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. featured long-form article (storytelling layout) -->
+  <article class="feature-article">
+    <div class="meta">
+      <span>📅 21 july 2026</span>
+      <span>🌿 wildcraft</span>
+      <span>⏳ 8 min read</span>
+    </div>
+    <h2>The mycelial mind: how fungi shape garden intelligence</h2>
+    <div class="excerpt">Beneath every thriving border lies a network older than roots — a fungal web that connects, nourishes, and communicates. This is the hidden brain of your garden.</div>
+    <a href="#" class="btn-forest">read the full chronicle →</a>
+  </article>
+
+  <!-- 4. wild wisdom (dual column, different backgrounds) -->
+  <div class="wisdom">
+    <div class="wisdom-main">
+      <h3>📘 the almanac notebook</h3>
+      <p style="margin-top: 1rem; font-weight: 300;">Five essential practices for resilient soil: no-till, green manure, biochar, fungal inoculation, and deep mulching. Each one rewilds the ground beneath your feet.</p>
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <span style="background: var(--deep-forest); color: white; padding: 0.3rem 1.2rem; border-radius: 40px;">no-till</span>
+        <span style="background: var(--moss); color: white; padding: 0.3rem 1.2rem; border-radius: 40px;">green manure</span>
+        <span style="background: var(--bark); color: white; padding: 0.3rem 1.2rem; border-radius: 40px;">biochar</span>
+      </div>
+    </div>
+    <div class="wisdom-side">
+      <h4 style="font-family: 'Quattrocento', serif;">🌲 woodland notes</h4>
+      <ul>
+        <li>🌿 companion planting: fern &amp; trillium</li>
+        <li>🍂 autumn leaf litter as insulation</li>
+        <li>🌳 edge effect &amp; biodiversity hotspots</li>
+        <li>💧 rainwater harvesting with moss swales</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5. latest intelligence (timeline) -->
+  <section class="intel-timeline">
+    <h3 style="font-family: 'Quattrocento', serif; font-size: 2rem; border-bottom: 2px solid var(--border-soft); padding-bottom: 1rem;">latest from the thicket</h3>
+    <div class="intel-item"><span class="date">18 jul</span><span class="title">The art of stumpery: bringing fallen trees back to life</span></div>
+    <div class="intel-item"><span class="date">12 jul</span><span class="title">Pollen diaries: early summer bloom sequences</span></div>
+    <div class="intel-item"><span class="date">5 jul</span><span class="title">Bark texture and lichen diversity — a field guide</span></div>
+    <div class="intel-item"><span class="date">29 jun</span><span class="title">How to read a leaf: chlorosis, margin scorch, and vein patterns</span></div>
+  </section>
+
+  <!-- ---- LONG-FORM SAMPLE (article content) ---- -->
+  <section class="long-form-sample">
+    <div class="img-hero">🌿 hero image: forest floor intelligence</div>
+    <h2>The mycelial mind: how fungi shape garden intelligence</h2>
+    <p style="font-weight: 300; font-size: 1.2rem; margin: 1rem 0;">A deep exploration into the fungal networks that connect every plant in your garden — and how to cultivate them.</p>
+    
+    <h3>1. The wood wide web</h3>
+    <p>Mycorrhizal fungi form symbiotic relationships with over 90% of land plants. These networks transfer nutrients, water, and even chemical signals between individuals. A single mycelial mat can span hectares, creating a living map of the underground.</p>
+    
+    <h3>2. Practical cultivation</h3>
+    <p>To encourage fungal diversity: avoid deep tilling, add woody organic matter, plant diverse species, and consider inoculating with native mycorrhizae. The results are resilient plants with enhanced drought tolerance.</p>
+    
+    <table>
+      <thead><tr><th>Fungal type</th><th>Benefit</th><th>Preferred host</th></tr></thead>
+      <tbody>
+        <tr><td>Arbuscular (AM)</td><td>Phosphorus uptake</td><td>Grasses, many perennials</td></tr>
+        <tr><td>Ectomycorrhizal (ECM)</td><td>Nitrogen &amp; water</td><td>Trees, oaks, pines</td></tr>
+        <tr><td>Ericoid</td><td>Acidic soil tolerance</td><td>Heathers, blueberries</td></tr>
+      </tbody>
+    </table>
+
+    <h3>3. Common mistakes</h3>
+    <ul>
+      <li>Over-fertilizing suppresses fungal growth.</li>
+      <li>Compacted soil limits hyphal spread.</li>
+      <li>Monocultures reduce network complexity.</li>
+    </ul>
+
+    <h3>FAQ — fungal gardening</h3>
+    <p><strong>Can I add commercial mycorrhizae?</strong> Yes, but ensure they are native strains and apply near roots.</p>
+    <p><strong>How long does it take?</strong> Networks develop over 2–3 seasons. Patience is key.</p>
+    <p style="margin-top: 2rem; background: var(--cream); padding: 1.5rem; border-radius: 30px 0 30px 0;"><strong>Expert advice:</strong> “Think of your soil as a community, not a medium. Feed the fungi, and they will feed your plants.” — Dr. A. Mycelia, forest ecologist.</p>
+  </section>
+
+  <!-- footer -->
+  <footer class="footer-weave">
+    <div class="footer-grid">
+      <div>
+        <h4>Jorven Thicket</h4>
+        <p style="font-weight: 300; max-width: 280px;">A wild gardening almanac — rooted in curiosity, written by hand. Est. 2026</p>
+      </div>
+      <div>
+        <h4>explore</h4>
+        <a href="#">Blog</a>
+        <a href="#">Categories</a>
+        <a href="#">Archive</a>
+        <a href="#">Authors</a>
+      </div>
+      <div>
+        <h4>information</h4>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Editorial Policy</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div>
+        <h4>legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 Jorven Thicket Almanac · handcrafted with soil &amp; silence
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>

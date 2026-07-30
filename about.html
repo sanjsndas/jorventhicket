@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Jorven Thicket Almanac</title>
+  <!-- Premium typography: organic sans + refined serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quattrocento:wght@400;700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------- reset & base -------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f3ec;  /* warm stone */
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 400;
+      color: #2b2a26;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    /* -------------------- brand identity -------------------- */
+    :root {
+      --lichen: #c0b7a8;
+      --moss: #5b6f4c;
+      --deep-forest: #293d2b;
+      --bark: #4d3e32;
+      --spore: #d9c9b0;
+      --cream: #f3efe8;
+      --charcoal: #22211e;
+      --border-soft: #d6cec0;
+      --shadow-card: 0 12px 28px -8px rgba(30, 30, 20, 0.10);
+    }
+    /* -------------------- navigation (identical to index) -------------------- */
+    .nav-weave {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.8rem 0 1.2rem;
+      border-bottom: 1px solid var(--border-soft);
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--deep-forest);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-symbol {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--moss);
+      border-radius: 60% 40% 50% 30% / 45% 30% 60% 40%;
+      transform: rotate(8deg);
+      border: 2px solid var(--cream);
+      box-shadow: inset 0 0 0 2px var(--deep-forest);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 400;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--bark);
+    }
+    .nav-links a {
+      padding: 0.4rem 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      border-bottom-color: var(--moss);
+      color: var(--deep-forest);
+    }
+    .nav-tools {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+    }
+    .nav-tools span {
+      background: var(--cream);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      border: 1px solid var(--border-soft);
+      font-weight: 300;
+    }
+    /* -------------------- about page hero -------------------- */
+    .about-hero {
+      padding: 4rem 0 2rem;
+      margin: 2rem 0 3rem;
+      border-radius: 120px 0 120px 0;
+      background: var(--cream);
+      box-shadow: var(--shadow-card);
+    }
+    .about-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-hero h1 {
+      font-family: 'Quattrocento', serif;
+      font-size: 3.6rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--deep-forest);
+    }
+    .about-hero h1 small {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--bark);
+      margin-top: 0.8rem;
+      font-family: 'Work Sans', sans-serif;
+    }
+    .about-badge {
+      background: white;
+      padding: 2rem 2.4rem;
+      border-radius: 20px 80px 20px 80px;
+      border-left: 8px solid var(--moss);
+      box-shadow: var(--shadow-card);
+    }
+    /* -------------------- editorial philosophy -------------------- */
+    .philosophy {
+      background: white;
+      border-radius: 60px 20px 60px 20px;
+      padding: 3.5rem 3rem;
+      margin: 4rem 0;
+      box-shadow: 0 24px 40px -16px rgba(30,30,20,0.18);
+      border: 1px solid #ded6c8;
+    }
+    .philosophy h2 {
+      font-family: 'Quattrocento', serif;
+      font-size: 2.8rem;
+      color: var(--deep-forest);
+    }
+    .philosophy .excerpt {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin: 1.5rem 0 2rem;
+      border-left: 4px solid var(--moss);
+      padding-left: 1.8rem;
+    }
+    /* -------------------- team / contributors (cards) -------------------- */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+    .team-card {
+      background: var(--cream);
+      border-radius: 30px 8px 30px 8px;
+      padding: 2rem 1.8rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-soft);
+      transition: 0.2s;
+    }
+    .team-card:nth-child(2) {
+      border-radius: 8px 30px 8px 30px;
+      background: white;
+      transform: translateY(-0.5rem);
+    }
+    .team-card:nth-child(3) {
+      border-radius: 50px 12px 50px 12px;
+      background: #eae3d7;
+    }
+    .team-card h3 {
+      font-family: 'Quattrocento', serif;
+      font-size: 1.6rem;
+      border-bottom: 2px dotted var(--moss);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .team-card .role {
+      font-weight: 300;
+      color: var(--bark);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+    /* -------------------- timeline / history -------------------- */
+    .history-timeline {
+      padding: 2rem 0 1rem;
+    }
+    .history-item {
+      display: flex;
+      gap: 2rem;
+      align-items: baseline;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid #ddd2c2;
+    }
+    .history-item .date {
+      font-weight: 300;
+      color: var(--bark);
+      min-width: 90px;
+      font-size: 0.9rem;
+    }
+    .history-item .title {
+      font-weight: 500;
+      font-size: 1.2rem;
+      font-family: 'Quattrocento', serif;
+    }
+    /* -------------------- footer (identical) -------------------- */
+    .footer-weave {
+      background: var(--deep-forest);
+      color: #d4cfc3;
+      padding: 4rem 0 2rem;
+      margin-top: 5rem;
+      border-radius: 60px 0 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .footer-grid h4 {
+      color: var(--spore);
+      font-family: 'Quattrocento', serif;
+      margin-bottom: 1.2rem;
+    }
+    .footer-grid a {
+      display: block;
+      padding: 0.3rem 0;
+      font-weight: 300;
+      border-bottom: 1px solid transparent;
+      width: fit-content;
+    }
+    .footer-grid a:hover {
+      border-bottom-color: var(--spore);
+      color: white;
+    }
+    .footer-copy {
+      border-top: 1px solid #4f5e3f;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+    /* -------------------- responsive -------------------- */
+    @media (max-width: 900px) {
+      .about-hero-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
+    @media (max-width: 600px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+      .about-hero h1 {
+        font-size: 2.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- navigation (same as index) -->
+  <nav class="nav-weave">
+    <div class="logo">
+      <span class="logo-symbol"></span>
+      Jorven Thicket Almanac
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" style="border-bottom-color: var(--moss); color: var(--deep-forest);">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html">Categories</a>
+      <a href="disclamier.html">Disclaimer</a>
+    </div>
+    <div class="nav-tools">
+      <span>🔍</span>
+      <span>🌿</span>
+    </div>
+  </nav>
+
+  <!-- about hero -->
+  <section class="about-hero">
+    <div class="about-hero-grid">
+      <div>
+        <h1>About the thicket <small>a wild gardening almanac · rooted in curiosity</small></h1>
+        <p style="margin-top: 1.5rem; font-size: 1.2rem; font-weight: 300; border-left: 4px solid var(--moss); padding-left: 1.5rem;">We are a small band of naturalists, writers, and soil-tenders who believe that gardens are living manuscripts — and every season turns a page.</p>
+      </div>
+      <div class="about-badge">
+        <p style="font-style: italic; font-weight: 300;">“To know a place deeply is to listen to its roots, its canopy, and the quiet hum of the understory.”</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem;">— editorial collective, est. 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- philosophy -->
+  <article class="philosophy">
+    <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+      <span style="background: var(--moss); color: white; padding: 0.3rem 1.5rem; border-radius: 40px; font-size: 0.8rem; letter-spacing: 0.06em;">manifesto</span>
+      <span style="font-weight: 300;">🌱 ⏳ 🍄</span>
+    </div>
+    <h2>An almanac for the wild‑hearted gardener</h2>
+    <div class="excerpt">We reject the sterile, the monocultural, and the overly manicured. Instead, we celebrate the forgotten arts: hedgerow ecology, fungal symbiosis, seed-saving, and the poetry of decay.</div>
+    <p style="margin: 1.5rem 0; font-weight: 300; font-size: 1.05rem;">Jorven Thicket is both a journal and a field guide — a place where science meets storytelling, and where every plant has a name, a history, and a role in the greater web. Our contributors include botanists, herbalists, foragers, and forest school educators, all united by a reverence for the living world.</p>
+    <div style="display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: 1.5rem;">
+      <span style="background: var(--deep-forest); color: white; padding: 0.4rem 1.8rem; border-radius: 40px;">no‑till philosophy</span>
+      <span style="background: var(--moss); color: white; padding: 0.4rem 1.8rem; border-radius: 40px;">mycelial ethics</span>
+      <span style="background: var(--bark); color: white; padding: 0.4rem 1.8rem; border-radius: 40px;">rewilding</span>
+    </div>
+  </article>
+
+  <!-- team / contributors -->
+  <section style="padding: 1rem 0 2rem;">
+    <h2 style="font-family: 'Quattrocento', serif; font-size: 2.4rem; border-bottom: 2px solid var(--border-soft); padding-bottom: 1rem;">🌿 the thicket collective</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <h3>M. Wren</h3>
+        <div class="role">editor · soil ecologist</div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem;">Wren has spent two decades studying fungal networks and forest regeneration. They write the monthly “Rhizome” column.</p>
+      </div>
+      <div class="team-card">
+        <h3>E. Thorne</h3>
+        <div class="role">contributing naturalist</div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem;">A botanist and herbalist, Thorne focuses on wild edibles, medicinal plants, and the forgotten lore of hedgerows.</p>
+      </div>
+      <div class="team-card">
+        <h3>L. Birch</h3>
+        <div class="role">artist &amp; field illustrator</div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem;">Birch’s ink drawings and watercolours capture the intricate beauty of leaves, bark, and mycelium. Their sketchbooks are legendary.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- history / timeline -->
+  <section class="history-timeline">
+    <h3 style="font-family: 'Quattrocento', serif; font-size: 2rem; border-bottom: 2px solid var(--border-soft); padding-bottom: 1rem;">almanac chronicle</h3>
+    <div class="history-item"><span class="date">spring 2026</span><span class="title">First issue published: “The mycelial mind”</span></div>
+    <div class="history-item"><span class="date">summer 2026</span><span class="title">Expanded field guide: “Bark &amp; lichen”</span></div>
+    <div class="history-item"><span class="date">autumn 2026</span><span class="title">Launched the “Wild Schools” programme</span></div>
+    <div class="history-item"><span class="date">winter 2026</span><span class="title">New series: “Understory dialogues”</span></div>
+  </section>
+
+  <!-- footer -->
+  <footer class="footer-weave">
+    <div class="footer-grid">
+      <div>
+        <h4>Jorven Thicket</h4>
+        <p style="font-weight: 300; max-width: 280px;">A wild gardening almanac — rooted in curiosity, written by hand. Est. 2026</p>
+      </div>
+      <div>
+        <h4>explore</h4>
+        <a href="#">Blog</a>
+        <a href="#">Categories</a>
+        <a href="#">Archive</a>
+        <a href="#">Authors</a>
+      </div>
+      <div>
+        <h4>information</h4>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Editorial Policy</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div>
+        <h4>legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 Jorven Thicket Almanac · handcrafted with soil &amp; silence
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>
